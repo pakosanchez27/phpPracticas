@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Login</title>
+</head>
+
+<body>
+    <div class="principal">
+        <div class="card">
+            <div class="hero"></div>
+            <div class="contenido">
+                <div class="navegacion">
+                    <div class="logo">
+                        <img src="src/img/logo.png" alt="logo" class="imagen">
+                        <p class="logo-nombre">CleanKode<span>®</span></p>
+                    </div>
+                    <div class="enlaces">
+                        <a href="#" class="enlace">Home</a>
+                        <a href="#" class="enlace">Join</a>
+                    </div>
+                    
+                </div>
+                <div class="registro">
+                    <div class="bienvenida">
+                        <p class="bienvenida__p">start for free</p>
+                        <h1 class="bienvenida__titulo">Create new account<span>.</span></h1>
+                        <p>Already A Member? <span>Log in</span></p>
+                    </div>
+                    <div class="formulario">
+                        <form action="">
+                            
+                            <div class="input nombre">
+                                <label for="nombre">First name</label>
+                                <input type="text" id="nombre" name="nombre" placeholder="ej. Montserrat" required>
+                            </div>
+                            
+                            <div class="input apellido">
+                                <label for="apellido">Last name</label>
+                                <input type="text" id="apellido" name="apellido" placeholder="ej. Ramirez" required>
+                            </div>
+                            <div class="input email">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" placeholder="ej. correo@correo.com" required>
+                            </div>
+                            <div class="input contraseña">
+                                <label for="contraseña">Password</label>
+                                <input type="password" id="contraseña" name="contraseña" placeholder="******" required>
+                            </div>        
+                            
+                                <div class="input crear opacity-50">
+                                    <input class="btnCrear " type="submit" id="crear" value="Create account" dis>
+                                </div>
+                                <div class="input limpiar">
+                                    <input class="btnlimpiar" type="submit" id="crear" value="Clean Form">
+                            </div> 
+                            
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
