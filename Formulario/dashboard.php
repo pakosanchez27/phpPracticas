@@ -83,7 +83,7 @@ $resultado = $_GET['resultado'] ?? null;
                     <?php while ($dato = mysqli_fetch_assoc($resultadoConsulta)) : ?>
                         <tr class="registro">
                             <td><img src="imagenes/<?php echo $dato['foto']; ?>" width="50px" height="50px"></td>
-                            <td><?php echo $dato['nombre'] . $dato['apellido'] ?> </td>
+                            <td><?php echo $dato['nombre'] . " ".$dato['apellido'] ?> </td>
                             <td><?php echo $dato['email']; ?></td>
                             <td><?php echo $dato['fecha']; ?></td>
                             <td class="opc ver">
@@ -135,6 +135,11 @@ $resultado = $_GET['resultado'] ?? null;
                     <?php endwhile ?>
                 </tbody>
             </table>
+        </div>
+        <div class="reporte">
+            <div class="btnImprimir">
+                <a href="#">Generar reporte</a>
+            </div>
         </div>
 
     </div>
