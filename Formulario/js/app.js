@@ -9,9 +9,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputApellido = document.querySelector('#apellido');
     const inputEmail = document.querySelector('#email');
     const inputPass = document.querySelector('#password');
-    const btncrear = document.querySelector('#btnCrear');
     const btnlimpiar = document.querySelector('#limpiar');
     const formulario = document.querySelector('#formulario');
+    const btncrear = document.querySelector('#btnCrear');
     
     const registro = {
         nombre: '',
@@ -27,10 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
     inputApellido.addEventListener('blur', validar);
     inputEmail.addEventListener('blur', validar);
     inputPass.addEventListener('blur', validar);
-    btncrear.addEventListener('click', function (e) {
-        e.preventDefault();
-        console.log('Hola mundo');
-    });
+   btncrear.addEventListener('click', (e) => {
+    e.preventDefault();
+    console.log("Hola mundo");
+   });
     btnlimpiar.addEventListener('click', function (e) {
         e.preventDefault();
         registro.nombre = '';
@@ -50,15 +50,18 @@ document.addEventListener('DOMContentLoaded', () => {
         if (e.target.value.trim() === '') {
             campo.classList.add('alerta');
             registro[e.target.name] = '';
-            verificar();
+            
             
         }else{
             campo.classList.remove('alerta');
+            
+
         }
 
         // Asignar valores
         registro[e.target.name] = e.target.value.trim().toLowerCase();
         console.log(registro);
+        verificar();
     };
 
     function verificar() {
