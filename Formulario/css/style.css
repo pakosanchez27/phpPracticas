@@ -37,7 +37,7 @@ body {
 .principal {
 
     width: 100%;
-    height: 100vh;
+    height: 120vh;
     display: flex;
 
     background-color: var(--grisClaro);
@@ -74,7 +74,7 @@ body {
 .hero {
 
     width: 100%;
-    height: 100%;
+    height: 120vh;
     position: absolute;
    
 
@@ -86,7 +86,7 @@ body {
         background: linear-gradient(81deg, rgba(39, 42, 55, 1) 45%, rgba(39, 42, 55, 0.36878501400560226) 100%);
         border-radius: 2rem;
         width: 100%;
-        
+        height: 100%;
        
     }
 }
@@ -248,7 +248,7 @@ width: 35rem;
     
         grid-template-areas: "nombre apellido"
             "email email"
-            "contraseña contraseña"
+            "password password"
             "bntLimpiar btnCrear";
         gap: 2rem;
     }
@@ -268,12 +268,12 @@ width: 35rem;
 }
 
 .email input,
-.contraseña input {
+.password input {
     width: 90%;
 }
 
-.contraseña {
-    grid-area: contraseña;
+.password {
+    grid-area: password;
 }
 
 .limpiar {

@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
 
-    <title>Login</title>
+    <title>Registro</title>
 </head>
 
 <body>
@@ -25,43 +25,41 @@
                         <p class="logo-nombre">CleanKode<span>®</span></p>
                     </div>
                     <div class="enlaces">
-                        <a href="#" class="enlace">Home</a>
-                        <a href="#" class="enlace">Join</a>
+                       
                     </div>
                     
                 </div>
                 <div class="registro">
                     <div class="bienvenida">
-                        <p class="bienvenida__p">start for free</p>
-                        <h1 class="bienvenida__titulo">Create new account<span>.</span></h1>
-                        <p>Already A Member? <span>Log in</span></p>
+                        <h1 class="bienvenida__titulo">Crea una cuenta nueva<span>.</span></h1>
+                        <p>Ya tienes cuenta? <span>Inicia Sesión</span></p>
                     </div>
                     <div class="formulario">
-                        <form action="">
+                        <form id="formulario" action="">
                             
                             <div class="input nombre">
-                                <label for="nombre">First name</label>
-                                <input type="text" id="nombre" name="nombre" placeholder="ej. Montserrat" required>
+                                <label for="nombre">Nombre</label>
+                                <input type="text" id="nombre" name="nombre" placeholder="ej. Montserrat" >
                             </div>
                             
                             <div class="input apellido">
-                                <label for="apellido">Last name</label>
-                                <input type="text" id="apellido" name="apellido" placeholder="ej. Ramirez" required>
+                                <label for="apellido">Apellido</label>
+                                <input type="text" id="apellido" name="apellido" placeholder="ej. Ramirez">
                             </div>
                             <div class="input email">
                                 <label for="email">Email</label>
-                                <input type="email" id="email" name="email" placeholder="ej. correo@correo.com" required>
+                                <input type="email" id="email" name="email" placeholder="ej. correo@correo.com">
                             </div>
-                            <div class="input contraseña">
-                                <label for="contraseña">Password</label>
-                                <input type="password" id="contraseña" name="contraseña" placeholder="******" required>
+                            <div class="input password">
+                                <label for="password">password</label>
+                                <input type="password" id="password" name="password" placeholder="******">
                             </div>        
                             
-                                <div class="input crear opacity-50">
-                                    <input class="btnCrear " type="submit" id="crear" value="Create account" dis>
+                                <div class="input crear">
+                                    <input class="btnCrear opacity-50 " type="submit" id="btnCrear" value="Crear Cuenta" disabled>
                                 </div>
                                 <div class="input limpiar">
-                                    <input class="btnlimpiar" type="submit" id="crear" value="Clean Form">
+                                    <input class="btnlimpiar" type="submit" id="limpiar" value="Limpiar">
                             </div> 
                             
                         </form>
