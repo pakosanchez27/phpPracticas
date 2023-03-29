@@ -42,6 +42,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    
 
 }
 
@@ -60,7 +61,8 @@ a{
 
 .contenedor {
     width: 90%;
-    height: 90%;
+    height: auto;
+    margin: 15rem 0 0 0;
     border-radius: 2rem;
     background-image: url('../src/img/bg3.jpg');
     background-position: center right;
@@ -179,6 +181,10 @@ a{
     font-size: 2rem;
     color: var(--Blanco);
     margin-bottom: 1rem;
+}
+.contenedor__formulario{
+    width: 60rem;
+    height: auto;
 }
 
 label{
@@ -598,11 +604,12 @@ hr{
 .contenedor-dash{
     width: 90%;
     height: 90%;
+    
     border-radius: 2rem;
     -webkit-box-shadow: 6px 31px 114px -2px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 6px 31px 114px -2px rgba(0, 0, 0, 0.75);
     box-shadow: 6px 31px 114px -2px rgba(0, 0, 0, 0.75);
-    padding: 8rem;
+    padding: 8rem 3rem;
 }
 .header{
     display: flex;
@@ -635,7 +642,7 @@ svg{
 }
 .registros{
 margin-top: 3rem;
-height: 70%;
+height: 65%;
 overflow: auto;
 }
 table{
@@ -644,7 +651,6 @@ table{
     color: var(--Blanco);
     border-style: none;
     border-collapse: collapse;
-   
 }
 
 thead{
@@ -703,13 +709,14 @@ td{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 5rem;
+    margin: 3rem;
 }
 .btnImprimir{
     padding: 2rem;
     background-color: rgb(211, 8, 160);
     font-size: 1.8rem;
     border-radius: 1.5rem;
+    
 }
 .btnImprimir a{
     color: var(--Blanco);
