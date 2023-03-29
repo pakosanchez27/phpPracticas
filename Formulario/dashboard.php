@@ -3,7 +3,7 @@
 // Importar la base de datos
 require 'includes/config.php';
 
-$db = conectarDB();
+
 
 // Realizar la consulta
 

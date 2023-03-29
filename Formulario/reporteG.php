@@ -2,10 +2,9 @@
 
 include 'plantilla.php';
 require 'includes/config.php';
-$db = conectarDB();
 $sql = "SELECT * FROM datos";
-$result = mysqli_query($db, $sql);
-
+$result= $db->query($sql);
+var_dump($result);
 
 
 $pdf = new PDF ( 'L', 'mm', 'legal'); // Cramos el objeto pdf

@@ -1,16 +1,26 @@
 <?php
 
-function conectarDB(){
-    $db = mysqli_connect('localhost', 'root', 'root', 'formulario');
+// function conectarDB(){
+//     $db = mysqli_connect('localhost', 'root', 'root', 'formulario');
 
-    if (!$db) {
-        echo "Error al conectar";
-        exit;
-    }
+//     if (!$db) {
+//         echo "Error al conectar";
+//         exit;
+//     }
     
-    return $db;
+//     return $db;
 
+// }
+
+
+try {
+    
+    $db = new PDO("oci:dbname=//localhost:1521/XE", "HR", "hr");
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+   
+
+} catch(PDOException $e) {
+    echo "Error al conectar a la base de datos: " . $e->getMessage();
 }
-
 
 ?>
