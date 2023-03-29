@@ -5,12 +5,11 @@ require 'includes/config.php';
 $db = conectarDB();
 $id = $_GET['id'];
 $id = filter_var($id, FILTER_VALIDATE_INT);
-$tipo = 'Individual';
 
 $sql = "SELECT * FROM datos WHERE id = {$id}";
 $result = mysqli_query($db, $sql);
 $row = mysqli_fetch_array($result);
-// echo $sql;
+//  echo $sql;
 $id =  $row['id'];
 $nombre = utf8_decode( $row['nombre']);
 $imagen =  $row['foto'];
@@ -19,6 +18,16 @@ $fecha = utf8_decode( $row['fecha']);
 $sexo = utf8_decode( $row['sexo']);
 $conocimiento = utf8_decode( $row['conocimiento']);
 $comentario = utf8_decode( $row['comentario']);
+
+// haz un var_dump a todas las variables
+
+
+
+
+
+
+
+// var_dump($row);
 
 
 
@@ -72,4 +81,8 @@ $pdf->MultiCell(180,5,  $comentario, 0,0,'L',0);
 // Largo, alto, Texto, borde, Aniliacion, fondo.
 
 
-$pdf->Output(); // mostramos la salida 
+$pdf->Output(); // mostramos la salida
+
+
+
+?>
