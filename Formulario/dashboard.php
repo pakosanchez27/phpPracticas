@@ -17,6 +17,28 @@ $resultadoConsulta  = mysqli_query($db, $query);
 $resultado = $_GET['resultado'] ?? null;
 
 
+$id = $_GET['id'];
+$id = filter_var($id, FILTER_VALIDATE_INT);
+
+if ($id) {
+
+    // Eliminar el archivo
+    $query = "SELECT foto FROM datos WHERE id = $id";
+
+    // echo $query;
+    $resultado = mysqli_query($db, $query);
+    $dato = mysqli_fetch_assoc($resultado);
+
+    unlink('imagenes/' . $dato['foto']);
+
+    // Eliminar la propiedad
+    $query = "DELETE FROM datos WHERE id = $id";
+    $resultado = mysqli_query($db, $query);
+
+    if ($resultado) {
+        header('Location: dashboard.php?resultado=3');
+    }
+}
 
 
 
@@ -97,7 +119,7 @@ $resultado = $_GET['resultado'] ?? null;
                                 </a>
                             </td>
                             <td class="opc pdf">
-                                <a href="#">
+                                <a href="reporte.php?id=<?php echo $dato['id']; ?>">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-printer" width="50" height="50" viewBox="0 0 24 24" stroke-width="1.5" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                         <path d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2" />
@@ -119,7 +141,7 @@ $resultado = $_GET['resultado'] ?? null;
                             </td>
 
                             <td class="opc eliminar">
-                                <a href="#">
+                                <a href="dashboard.php?id=<?php echo $dato['id']; ?>">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-trash-x" width="50" height="50" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
                                         <path d="M4 7h16"></path>
@@ -138,7 +160,7 @@ $resultado = $_GET['resultado'] ?? null;
         </div>
         <div class="reporte">
             <div class="btnImprimir">
-                <a href="#">Generar reporte</a>
+                <a href="reporteG.php">Generar reporte</a>
             </div>
         </div>
 
