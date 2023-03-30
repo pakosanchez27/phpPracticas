@@ -1,0 +1,67 @@
+/* Formateo de la pagina  */
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+    /* 1 rem = 10 px */
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+a{
+    text-decoration: none;
+}
+h1, h2, h3, p{
+    margin: 0;
+}
+
+body{
+    border: 1px solid red;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin: 0;
+    padding: 10rem;
+}
+
+.contenedor{
+    border: 1px solid blue;
+    width: 50%;
+    height: auto;
+    padding: 3rem 5rem;
+    display: flex;
+    flex-direction: column;
+}
+.titulo{
+    text-align: left;
+}
+
+.contenido form{
+    width: 100%;
+    display: grid;
+    grid-template-areas: 'nombre apellido'
+                          'email sexo'
+                          'carrera carrera'
+                          'conocimiento conocimiento'
+                          'botones botones';
+                          gap: 2rem;
+}
+.nombre{
+    grid-area: nombre;
+}
+.apellido{
+    grid-area: apellido;
+}
+.email{
+    grid-area: email;
+}
+.sexo{
+    grid-area: sexo;
+}
+.carrera{
+    grid-area: carrera;
+}
