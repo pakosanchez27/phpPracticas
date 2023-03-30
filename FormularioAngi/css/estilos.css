@@ -1,67 +1,155 @@
-/* Formateo de la pagina  */
-
-html {
-    box-sizing: border-box;
-    font-size: 62.5%;
-    /* 1 rem = 10 px */
-}
-
-*,
-*:before,
-*:after {
-    box-sizing: inherit;
-}
-a{
-    text-decoration: none;
-}
-h1, h2, h3, p{
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
-}
+  }
 
-body{
-    border: 1px solid red;
+.body-formulario {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    margin: 0;
-    padding: 10rem;
-}
+    height: 100vh;
+  }
 
-.contenedor{
-    border: 1px solid blue;
-    width: 50%;
-    height: auto;
-    padding: 3rem 5rem;
+  a{
+    text-decoration: none;
+  }
+  
+
+  /* Formulario */
+  form {
     display: flex;
     flex-direction: column;
-}
-.titulo{
-    text-align: left;
-}
-
-.contenido form{
+    align-items: center;
+    width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  input[type="text"],
+  input[type="date"],
+  input[type="email"],
+  select {
     width: 100%;
-    display: grid;
-    grid-template-areas: 'nombre apellido'
-                          'email sexo'
-                          'carrera carrera'
-                          'conocimiento conocimiento'
-                          'botones botones';
-                          gap: 2rem;
-}
-.nombre{
-    grid-area: nombre;
-}
-.apellido{
-    grid-area: apellido;
-}
-.email{
-    grid-area: email;
-}
-.sexo{
-    grid-area: sexo;
-}
-.carrera{
-    grid-area: carrera;
-}
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+  }
+  
+  input[type="radio"] {
+    margin: 0 10px 0 0;
+  }
+  
+  input[type="checkbox"] {
+    margin: 0 10px 0 0;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  button[type="reset"] {
+    background-color: #ccc;
+    color: #000;
+  }
+  .planes{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+  }
+
+  /* dashboard */
+
+   
+  .header {
+    background-color: #007bff;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+  }
+  
+  .container {
+    max-width: 90%;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
+  }
+  .btnForm{
+    margin-top: 20px;
+    width: 98%;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .btnReporte{
+    margin-top: 20px;
+    width: 98%;
+    display: flex;
+    justify-content: center;
+  }
+
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #007bff;
+    color: #fff;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  .btns{
+    display: flex;
+    justify-content: center;
+  }
+  .btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn:hover {
+    background-color: #0056b3;
+  }
+  .opc{
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 1rem;
+  } 
