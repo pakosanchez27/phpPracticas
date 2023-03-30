@@ -8,15 +8,6 @@ require 'includes/config.php';
 // Trae los registo 
 $sql = "SELECT * FROM registros";
 $result = $pdo->query($sql);
-$registro = $result->fetch(PDO::FETCH_ASSOC);
-
-$id = $registro['id'];
-$nombre = $registro['nombre'];
-$apellido = $registro['apellido'];
-$fecha = $registro['fecha'];
-$email = $registro['email'];
-$sexo = $registro['sexo'];
-$plan = $registro['plan'];
 
 
 $pdf = new PDF('L');
@@ -44,14 +35,14 @@ $pdf->SetFillColor(255, 255, 255);
 $pdf->SetTextColor(0,0,0);
 $pdf->SetDrawColor(0,0,0);
 $pdf->SetLineWidth(0.2);
-foreach ($registro as $registro) {
-$pdf->Cell(20,10,$id,1,0,'C',1);
-$pdf->Cell(40,10,$nombre,1,0,'C',1);
-$pdf->Cell(40,10,$apellido,1,0,'C',1);
-$pdf->Cell(40,10,$fecha,1,0,'C',1);
-$pdf->Cell(50,10,$email,1,0,'C',1);
-$pdf->Cell(30,10,$sexo,1,0,'C',1);
-$pdf->Cell(30,10,$plan,1,0,'C',1);
+while ($registro = $result->fetch(PDO::FETCH_ASSOC)) {
+$pdf->Cell(20,10,$registro['id'],1,0,'C',1);
+$pdf->Cell(40,10,$registro['nombre'],1,0,'C',1);
+$pdf->Cell(40,10,$registro['apellido'],1,0,'C',1);
+$pdf->Cell(40,10,$registro['fecha'],1,0,'C',1);
+$pdf->Cell(50,10,$registro['email'],1,0,'C',1);
+$pdf->Cell(30,10,$registro['sexo'],1,0,'C',1);
+$pdf->Cell(30,10,$registro['plan'],1,0,'C',1);
 $pdf->Ln();
 }
 
