@@ -254,7 +254,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             </div>
                             <div class="btn">
                                 <input type="reset" value="Limpiar" class="boton limpiar" id="limpiar">
-                                <input type="submit" value="Enviar" class="boton enviar opacity50" id="enviar">
+                                <input type="submit" value="Actualizar" class="boton enviar opacity50" id="enviar">
                             </div>
 
                         </div>
