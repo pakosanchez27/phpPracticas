@@ -11,7 +11,7 @@ $query = "SELECT * from datos";
 
 //Traer los resultados 
 
-$resultadoConsulta  = mysqli_query($db, $query);
+$resultadoConsulta  = $db->query($query);
 
 // Muestra mensaje condicional
 $resultado = $_GET['resultado'] ?? null;
@@ -26,14 +26,14 @@ if ($id) {
     $query = "SELECT foto FROM datos WHERE id = $id";
 
     // echo $query;
-    $resultado = mysqli_query($db, $query);
-    $dato = mysqli_fetch_assoc($resultado);
+    $resultado = $db->query($query);
+    $dato = $resultado->fetch(PDO::FETCH_ASSOC);
 
     unlink('imagenes/' . $dato['foto']);
 
     // Eliminar la propiedad
     $query = "DELETE FROM datos WHERE id = $id";
-    $resultado = mysqli_query($db, $query);
+    $resultado = $db->query($query);
 
     if ($resultado) {
         header('Location: dashboard.php?resultado=3');
@@ -102,7 +102,7 @@ if ($id) {
                     </tr>
                 </thead>
                 <tbody>
-                    <?php while ($dato = mysqli_fetch_assoc($resultadoConsulta)) : ?>
+                    <?php while ($dato = $resultadoConsulta->fetch(PDO::FETCH_ASSOC)) : ?>
                         <tr class="registro">
                             <td><img src="imagenes/<?php echo $dato['foto']; ?>" width="50px" height="50px"></td>
                             <td><?php echo $dato['nombre'] . " ".$dato['apellido'] ?> </td>

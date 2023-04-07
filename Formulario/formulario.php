@@ -2,20 +2,20 @@
 // importar conexion
 require 'includes/config.php';
 
-$db = conectarDB();
+
 
 
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nombre = mysqli_real_escape_string($db,  $_POST['nombre']);
-    $apellido = mysqli_real_escape_string($db, $_POST["apellido"]);
-    $carrera = mysqli_real_escape_string($db, $_POST['carrera']);
-    $email = mysqli_real_escape_string($db, $_POST['email']);
-    $genero = mysqli_real_escape_string($db, $_POST['sexo']);
-    $conocimiento = isset($_POST['conocimiento']) ? mysqli_real_escape_string($db, implode(', ', $_POST['conocimiento'])) : '';
+    $nombre = $_POST['nombre'];
+    $apellido = $_POST["apellido"];
+    $carrera = $_POST['carrera'];
+    $email =$_POST['email'];
+    $genero = $_POST['sexo'];
+    $conocimiento = isset($_POST['conocimiento']) ? implode(', ', $_POST['conocimiento']) : '';
     $fecha = $_POST['fecha'];
-    $comentario = mysqli_real_escape_string($db, $_POST['comentario']);
+    $comentario = $_POST['comentario'];
     $foto = $_FILES["foto"];
     // $temp = $_FILES["foto"]["tmp_name"];
     // move_uploaded_file($temp, "imagenes/$foto");
@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     //  echo $query;
     //    Isertar los datos
 
-    $resultado = mysqli_query($db, $query);
+    $resultado = $db->query($query);
 
     if ($resultado) {
           // Redireccionar al usuario.

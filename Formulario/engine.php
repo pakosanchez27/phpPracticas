@@ -2,7 +2,7 @@
 //   importar la conexion 
 require 'includes/config.php';
 
-$db = conectarDB();
+
 
 $id = $_GET['id'];
 $id = filter_var($id, FILTER_VALIDATE_INT);
@@ -17,9 +17,9 @@ $query = "SELECT * FROM datos WHERE id = $id";
 
 // Traer los resultados
 
-$resultado = mysqli_query($db, $query);
+$resultado = $db->query($query);
 
-$dato = mysqli_fetch_assoc($resultado);
+$dato = $resultado->fetch(PDO::FETCH_ASSOC);
 
 ?>
 

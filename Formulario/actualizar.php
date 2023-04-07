@@ -5,7 +5,7 @@ $id = filter_var($id, FILTER_VALIDATE_INT);
 // importar conexion
 require 'includes/config.php';
 
-$db = conectarDB();
+
 
 // Consulta
 
@@ -13,8 +13,8 @@ $query = "SELECT * FROM datos WHERE id = {$id}";
 
 // Resultados
 
-$resultados = mysqli_query($db, $query);
-$datos = mysqli_fetch_assoc($resultados);
+$resultados = $db->query($query);
+$datos = $resultados->fetch(PDO::FETCH_ASSOC);
 
 $nombre = $datos['nombre'];
 $apellido = $datos['apellido'];
@@ -28,14 +28,14 @@ $nombreImagen = $datos['foto'];
 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nombre = mysqli_real_escape_string($db,  $_POST['nombre']);
-    $apellido = mysqli_real_escape_string($db, $_POST["apellido"]);
-    $carrera = mysqli_real_escape_string($db, $_POST['carrera']);
-    $email = mysqli_real_escape_string($db, $_POST['email']);
-    $genero = mysqli_real_escape_string($db, $_POST['sexo']);
-    $conocimiento = isset($_POST['conocimiento']) ? mysqli_real_escape_string($db, implode(', ', $_POST['conocimiento'])) : '';
+    $nombre = $_POST['nombre'];
+    $apellido = $_POST["apellido"];
+    $carrera = $_POST['carrera'];
+    $email =$_POST['email'];
+    $genero = $_POST['sexo'];
+    $conocimiento = isset($_POST['conocimiento']) ? implode(', ', $_POST['conocimiento']) : '';
     $fecha = $_POST['fecha'];
-    $comentario = mysqli_real_escape_string($db, $_POST['comentario']);
+    $comentario = $_POST['comentario'];
     $foto = $_FILES["foto"];
 
 
@@ -69,9 +69,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "UPDATE datos SET nombre='$nombre', apellido='$apellido', email='$email', carrera='$carrera', sexo='$genero', conocimiento='$conocimiento', fecha='$fecha', comentario='$comentario', foto='$nombreImagen' WHERE id={$id}";
 
 
-  echo $sql;
+//   echo $sql;
 
-    $resultado = mysqli_query($db, $sql);
+    $resultado = $db->query($sql);
 
     if ($resultado) {
 
