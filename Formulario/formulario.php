@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $query = "INSERT INTO datos (nombre, apellido, email, carrera, sexo, conocimiento, fecha, comentario, foto) VALUES ('$nombre', '$apellido', '$email', '$carrera', '$genero', '$conocimiento', '$fecha', '$comentario', '$nombreImagen')";
 
-    //  echo $query;
+      echo $query;
     //    Isertar los datos
 
     $resultado = $db->query($query);
@@ -89,7 +89,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <h2>Ingresa tus datos<span>.</span></h2>
                 </div>
                 <div class="contenedor__formulario">
-                    <form id="formulario" action="/formulario.php" method="POST" class="formulario" enctype="multipart/form-data">
+                    <form id="formulario" action="formulario.php" method="POST" class="formulario" enctype="multipart/form-data">
                         <div class="input nombre">
                             <label for="nombre">Nombre</label>
                             <input type="text" name="nombre" id="nombre" placeholder="Tu nombre" require>

@@ -2,13 +2,13 @@
 
 include 'plantilla.php';
 require 'includes/config.php';
-$db = conectarDB();
+
 $id = $_GET['id'];
 $id = filter_var($id, FILTER_VALIDATE_INT);
 
 $sql = "SELECT * FROM datos WHERE id = {$id}";
-$result = mysqli_query($db, $sql);
-$row = mysqli_fetch_array($result);
+$result = $db->query($sql);
+$row = $result->fetch(PDO::FETCH_ASSOC);
 //  echo $sql;
 $id =  $row['id'];
 $nombre = utf8_decode( $row['nombre']);

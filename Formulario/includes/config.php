@@ -15,7 +15,7 @@
 
 try {
     
-    $db = new PDO("oci:dbname=//localhost:1521/XE", "HR", "hr");
+    $db = new PDO("oci:dbname=//localhost:1521/XE", "HR", "HR");
     $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
    
 
