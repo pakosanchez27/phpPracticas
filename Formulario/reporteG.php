@@ -4,7 +4,6 @@ include 'plantilla.php';
 require 'includes/config.php';
 $sql = "SELECT * FROM datos";
 $result= $db->query($sql);
-var_dump($result);
 
 
 $pdf = new PDF ( 'L', 'mm', 'legal'); // Cramos el objeto pdf
@@ -20,7 +19,7 @@ $pdf->Cell(30,10,'Fecha', 1 ,0 ,'C',1);
 $pdf->Cell(70,10,'Conocimiento', 1 ,1,'C',1);
 $pdf->SetFont('Arial', 'I', 12);
 
-while ($dato = mysqli_fetch_assoc($result)){
+while ($dato = $result->fetch(PDO::FETCH_ASSOC)){
     $pdf->Cell(10,10,$dato['id'], 1 ,0 ,'C',0);
     $pdf->Cell(30,10, utf8_decode( $dato['nombre']), 1 ,0 ,'C',0);
     $pdf->Cell(30,10,$dato['sexo'], 1 ,0 ,'C',0);

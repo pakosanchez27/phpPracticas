@@ -38,15 +38,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $query = "INSERT INTO datos (nombre, apellido, email, carrera, sexo, conocimiento, fecha, comentario, foto) VALUES ('$nombre', '$apellido', '$email', '$carrera', '$genero', '$conocimiento', '$fecha', '$comentario', '$nombreImagen')";
 
-      echo $query;
+    //   echo $query;
     //    Isertar los datos
 
     $resultado = $db->query($query);
 
-    if ($resultado) {
+ 
           // Redireccionar al usuario.
           header('Location: dashboard.php?resultado=1');
-    }
+   
 }
 
 

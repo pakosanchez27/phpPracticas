@@ -46,15 +46,15 @@ $dato = $resultado->fetch(PDO::FETCH_ASSOC);
         </div>
         <div class="barra">
             <div class="datos">
-                <img src="img/<?php echo $dato['sexo']; ?>.png">
+                <img src="src/img/<?php echo $dato['sexo']; ?>.png">
                 <span><?php echo $dato['sexo']; ?></span>
             </div>
             <div class="datos">
-                <img src="img/cumple.png">
+                <img src="src/img/cumple.png">
                 <span><?php echo $dato['fecha']; ?></span>
             </div>
             <div class="datos">
-                <img src="img/correo.png">
+                <img src="src/img/correo.png">
                 <span><?php echo $dato['email']; ?></span>
             </div>
         </div>

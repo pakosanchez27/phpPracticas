@@ -147,7 +147,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <div class="input carrera">
                             <label for="carrera">Carrera</label>
                             <select name="carrera" id="carrera">
-                                <option selected disabled>--Seleccionar--</option>
+                                <option selected value="<?php echo $carrera ?>"><?php echo $carrera ?></option>
                                 <option value="TI Infraestructura de Redes Digitales">TI Infraestructura de Redes
                                     Digitales</option>
                                 <option value="TI Desarrollo de Software Multiplataforma">TI Desarrollo de Software
