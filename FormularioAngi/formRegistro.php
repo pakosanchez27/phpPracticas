@@ -6,10 +6,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	// Obtiene los valores de los campos del formulario
 	$nombre = $_POST["nombre"];
 	$email = $_POST["email"];
-	$password = $_POST["contrasena"];
-	$hash = password_hash($password, PASSWORD_DEFAULT);
+	$pass = $_POST["password"];
+	$hash = password_hash($pass, PASSWORD_DEFAULT);
 	// Prepara la consulta SQL para insertar un nuevo registro en la tabla
-	$sql = "INSERT INTO usuarios (nombre, email, password) VALUES ('$nombre', '$email', '$hash')";
+	$sql = "INSERT INTO usuarios (nombre, email, pass) VALUES ('$nombre', '$email', '$hash')";
 	// echo $sql;
 	// Ejecuta la consulta SQL
 
@@ -42,6 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 		<input type="submit" value="Registrarse">
 		<a href="formLogin.php">Iniciar sesión</a>
+		
 	</form>
 
 

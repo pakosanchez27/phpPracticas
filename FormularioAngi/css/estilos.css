@@ -162,12 +162,21 @@ body {
     display: flex;
     justify-content: flex-end;
   }
-  .cerrar form{
+  .cerrar  button{
     width: 10rem;
     padding: 20px;
     margin-right: 50px;
+    border: none;
+    background-color: red;
+    color: white;
+    border-radius: 5px;
   }
-  .btn-cerrar-sesion {
+  .cerrar form{
+    padding: 0;
+    width: 0;
+    margin-right: 100px;
+  }
+  .error {
     background-color: red;
     color: white;
     border: none;
@@ -175,5 +184,7 @@ body {
     font-size: 16px;
     cursor: pointer;
     border-radius: 5px;
+    
+    
    
 }

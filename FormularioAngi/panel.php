@@ -91,7 +91,7 @@ if ($id) {
       <a href="reporteG.php" class="btn">Generar reporte</a>
     </div>
   </div>
-  <div class="cerrar">
+  <div class=" cerrar">
     <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
       <input type="hidden" name="cerrar_sesion" value="true">
       <button type="submit" class="btn-cerrar-sesion">Cerrar sesión</button>
