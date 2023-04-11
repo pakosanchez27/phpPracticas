@@ -158,3 +158,22 @@ body {
   .planes{
     margin-bottom: 20px;
   }
+  .cerrar {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .cerrar form{
+    width: 10rem;
+    padding: 20px;
+    margin-right: 50px;
+  }
+  .btn-cerrar-sesion {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+   
+}

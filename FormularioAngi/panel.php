@@ -1,4 +1,21 @@
 <?php
+session_start();
+
+// Verificar si el usuario ha iniciado sesión
+if (!isset($_SESSION['usuario'])) {
+  // El usuario no ha iniciado sesión, redirigir a la página de inicio de sesión
+  header("Location: /formLogin.php");
+  exit();
+}
+
+if (isset($_POST['cerrar_sesion']) && $_POST['cerrar_sesion'] == true) {
+  // Finaliza la sesión y redirige al usuario a la página de inicio de sesión
+  session_unset();
+  session_destroy();
+  header("Location: /formLogin.php");
+  exit();
+}
+
 
 require 'includes/config.php';
 
@@ -8,15 +25,15 @@ $result = $pdo->query($sql);
 
 
 // Elimina el registro segun el id
-$id = $_GET ['id'];
+$id = $_GET['id'];
 
-if ($id){
+if ($id) {
   $query = "DELETE FROM registros WHERE id = $id";
   $eliminar = $pdo->query($query);
 
   if ($eliminar) {
     header('Location: panel.php?resultado=3');
-}
+  }
 }
 
 
@@ -74,6 +91,13 @@ if ($id){
       <a href="reporteG.php" class="btn">Generar reporte</a>
     </div>
   </div>
+  <div class="cerrar">
+    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+      <input type="hidden" name="cerrar_sesion" value="true">
+      <button type="submit" class="btn-cerrar-sesion">Cerrar sesión</button>
+    </form>
+  </div>
+
 </body>
 
 </html>
