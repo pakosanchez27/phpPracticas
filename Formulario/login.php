@@ -1,3 +1,40 @@
+<?php
+
+require 'includes/config.php';
+
+if($_SERVER['REQUEST_METHOD'] == 'POST'){
+    $email = $_POST['email'];
+    $pass = $_POST['pass'];
+
+//    Consulta 
+ 
+$sql = "SELECT * FROM usuarios WHERE email = '$email'";
+$result = $db->query($sql);
+$dato = $result->fetch(PDO::FETCH_ASSOC);
+$errores = [];
+
+if($dato){
+    if(password_verify($pass, $dato['pass'])){
+        
+        session_start();
+                    // Llenar el arreglo de la sesion
+                    $_SESSION['usuario'] = $dato['nombre'];
+                    $_SESSION['login'] = true;
+
+                    header('Location: /dashboard.php');
+    }else{
+        $errores[] = 'Datos incorrectos';
+    }
+} else{
+    $errores[] = 'Usuario no existe';
+}
+
+
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -32,10 +69,10 @@
                 <div class="registro">
                     <div class="bienvenida">
                         <h1 class="bienvenida__titulo">Inicia Sesión<span>.</span></h1>
-                        <p>Aún no tienes cuenta? <span>Registrate</span></p>
+                        <p>Aún no tienes cuenta? <span><a href="singup.php">Registrarse</a></span></p>
                     </div>
                     <div class="formulario-login">
-                        <form id="formulario" action="">
+                        <form id="formulario" method="POST">
                             
                           
                             <div class="input login-email">
@@ -44,16 +81,20 @@
                             </div>
                             <div class="input login-password">
                                 <label for="password">password</label>
-                                <input type="password" id="password" name="password" placeholder="******">
+                                <input type="password" id="password" name="pass" placeholder="******">
                             </div>        
                             
                                 <div class="input crear">
                                     <input class="btnEntrar " type="submit" id="btnEntrar" value="Entrar" >
                                 </div>
-                               
+                                
                             
                         </form>
-                        
+                         <div class="error">
+                                <?php foreach ($errores as $error) : ?>
+                                    <p><?php echo $error ?></p>
+                                <?php endforeach ?>
+                            </div>
                     </div>
                 </div>
             </div>

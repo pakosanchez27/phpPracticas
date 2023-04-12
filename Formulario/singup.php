@@ -1,3 +1,58 @@
+<?php
+
+require 'includes/config.php';
+
+
+// Arreglo de errores
+$errores = [];
+
+$nombre = '';
+$apellido = '';
+$email = '';
+$pass = '' ;
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+    $nombre = $_POST['nombre'];
+    $apellido = $_POST['apellido'];
+    $email = $_POST['email'];
+    $pass = $_POST['pass'];
+
+    
+    // enciptamos el password 
+    $hash = password_hash($pass, PASSWORD_DEFAULT);
+    
+
+    // Verificar si el correo ya existe
+    $sql = "SELECT * FROM usuarios WHERE email = '$email'";
+    $consulta = $db->query($sql)->fetch(PDO::FETCH_ASSOC);
+
+    if ($email == $consulta['email'] ) {
+        $errores[] = 'Ya hay una cuenta con este email';
+    }
+    // Verificar si los campos estan vacios
+    if (!$nombre ) {
+        $errores[] = 'Ningun campo debe estar vacio';
+    }
+    
+
+    //cosas cuando ya no hay errores
+
+    if (empty($errores)) {
+        // la consulta de inserccion
+
+        $query = "INSERT INTO usuarios (nombre, apellido, email, pass) VALUES ('$nombre', '$apellido', '$email', '$hash')";
+        $insertar = $db->query($query);
+
+        if ($insertar){
+            header("location: /login.php");
+        }
+    }
+}
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,23 +80,23 @@
                         <p class="logo-nombre">CleanKode<span>®</span></p>
                     </div>
                     <div class="enlaces">
-                       
+
                     </div>
-                    
+
                 </div>
                 <div class="registro">
                     <div class="bienvenida">
                         <h1 class="bienvenida__titulo">Crea una cuenta nueva<span>.</span></h1>
-                        <p>Ya tienes cuenta? <span>Inicia Sesión</span></p>
+                        <p>Ya tienes cuenta? <span><a href="login.php">Inciar Sesión</a></span></p>
                     </div>
                     <div class="formulario">
-                        <form id="formulario" action="">
-                            
+                        <form id="formulario" method="POST" action="singup.php">
+
                             <div class="input nombre">
                                 <label for="nombre">Nombre</label>
-                                <input type="text" id="nombre" name="nombre" placeholder="ej. Montserrat" >
+                                <input type="text" id="nombre" name="nombre" placeholder="ej. Montserrat">
                             </div>
-                            
+
                             <div class="input apellido">
                                 <label for="apellido">Apellido</label>
                                 <input type="text" id="apellido" name="apellido" placeholder="ej. Ramirez">
@@ -52,18 +107,22 @@
                             </div>
                             <div class="input password">
                                 <label for="password">password</label>
-                                <input type="password" id="password" name="password" placeholder="******">
-                            </div>        
-                            
-                                <div class="input crear">
-                                    <input class="btnCrear opacity-50 " type="submit" id="btnCrear" value="Crear Cuenta" disabled>
-                                </div>
-                                <div class="input limpiar">
-                                    <input class="btnlimpiar" type="submit" id="limpiar" value="Limpiar">
-                            </div> 
-                            
+                                <input type="password" id="pass" name="pass" placeholder="******">
+                            </div>
+
+                            <div class="input crear">
+                                <input class="btnCrear " type="submit" id="btnCrear" value="Crear Cuenta">
+                            </div>
+                            <div class="input limpiar">
+                                <input class="btnlimpiar" type="submit" id="limpiar" value="Limpiar">
+                            </div>
+                            <div class="error">
+                                <?php foreach ($errores as $error) : ?>
+                                    <p><?php echo $error ?></p>
+                                <?php endforeach ?>
+                            </div>
                         </form>
-                        
+
                     </div>
                 </div>
             </div>

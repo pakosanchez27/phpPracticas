@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const inputNombre = document.querySelector('#nombre');
     const inputApellido = document.querySelector('#apellido');
     const inputEmail = document.querySelector('#email');
-    const inputPass = document.querySelector('#password');
+    const inputPass = document.querySelector('#pass');
     const btnlimpiar = document.querySelector('#limpiar');
     const formulario = document.querySelector('#formulario');
     const btncrear = document.querySelector('#btnCrear');
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         nombre: '',
         apellido: '',
         email: '',
-        password: ''
+        pass: ''
     }
    
 
@@ -31,12 +31,22 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     console.log("Hola mundo");
    });
+
+   formulario.addEventListener('submit', (e) =>  {
+    e.preventDefault();
+    spinner.classList.remove('hidden');
+
+    setTimeout(() => {
+        spinner.remove();
+        formulario.submit();
+    }, 3000);
+   });
     btnlimpiar.addEventListener('click', function (e) {
         e.preventDefault();
         registro.nombre = '';
         registro.apellido = '';
         registro.email = '';
-        registro.password = '';
+        registro.pass = '';
 
         formulario.reset();
         verificar();
@@ -66,14 +76,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function verificar() {
         console.log(Object.values(registro));
+        btncrear.classList.add('opacity-50');
+        btncrear.disabled = true;
 
-        if (Object.values(registro).includes('')) {
-            btncrear.classList.add('opacity-50');
-            btncrear.disabled = true;
-        }else{
+        if (!Object.values(registro).includes('')) {
             btncrear.classList.remove('opacity-50');
             btncrear.disabled = false;
         }
+        btncrear.submit();
     }
 
 });

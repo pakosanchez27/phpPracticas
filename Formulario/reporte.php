@@ -1,5 +1,12 @@
 <?php
 
+require 'includes/funciones.php';
+$auth = estaAutenticado();
+
+if(!$auth){
+    header('Location: /login.php');
+}
+
 include 'plantilla.php';
 require 'includes/config.php';
 

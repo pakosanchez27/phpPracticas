@@ -1,4 +1,12 @@
 <?php
+
+
+require 'includes/funciones.php';
+$auth = estaAutenticado();
+
+if(!$auth){
+    header('Location: /login.php');
+}
 // importar conexion
 require 'includes/config.php';
 

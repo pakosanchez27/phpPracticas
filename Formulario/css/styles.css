@@ -743,3 +743,9 @@ td{
   ::-webkit-scrollbar-thumb:hover {
     background-color: #9e0d86; /* Color del thumb al pasar el mouse sobre él */
   }
+
+  .cerrar{
+    background-color: red;
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }

@@ -1,5 +1,13 @@
 <?php
 
+
+require 'includes/funciones.php';
+$auth = estaAutenticado();
+$usuario = $_SESSION['usuario'];
+if(!$auth){
+    header('Location: /login.php');
+}
+
 // Importar la base de datos
 require 'includes/config.php';
 
@@ -75,7 +83,7 @@ if ($id) {
 
         <header class="header">
             <div class="header__titulo">
-                <h1>Dashboard</h1>
+                <h1>Dashboard</h1> <p> Hola! <?php echo $usuario ?></p>
             </div>
 
 
@@ -84,6 +92,7 @@ if ($id) {
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"></path>
                 </svg>
                 <a href="/formulario.php" class="boton">Nuevo</a>
+                
             </div>
         </header>
         <hr>
@@ -159,6 +168,9 @@ if ($id) {
             </table>
         </div>
         <div class="reporte">
+            <div class="btncerrar cerrar btnImprimir">
+            <a href="cerrar.php">Cerrar Sesion</a>
+            </div>
             <div class="btnImprimir">
                 <a href="reporteG.php">Generar reporte</a>
             </div>

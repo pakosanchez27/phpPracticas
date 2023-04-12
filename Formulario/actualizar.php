@@ -1,5 +1,12 @@
 <?php
 
+require 'includes/funciones.php';
+$auth = estaAutenticado();
+
+if(!$auth){
+    header('Location: /login.php');
+}
+
 $id = $_GET['id'];
 $id = filter_var($id, FILTER_VALIDATE_INT);
 // importar conexion

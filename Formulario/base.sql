@@ -48,3 +48,13 @@ FOR EACH ROW
 BEGIN
   SELECT mi_secuencia.NEXTVAL INTO :new.id FROM datos;
 END;
+
+
+-- Tabla usuarios
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(50),
+    apellido VARCHAR(50),
+    email VARCHAR(100),
+    pass VARCHAR(100)
+);
